@@ -19,9 +19,10 @@ class LoginView(FormView):
 		username = form.cleaned_data['username']
 		password = form.cleaned_data['password']
 		user = authenticate(username  = username, password = password)
+		print(user.role)
 
 		if user is not None and user.is_active and user.is_staff:
 			login(self.request, user)
-			return HttpResponseRedirect("index")
+			return redirect("index")
 		else:
 			return self.form_invalid(form)

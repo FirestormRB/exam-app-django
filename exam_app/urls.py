@@ -4,6 +4,6 @@ from .views import LoginView
 from . import views
 
 urlpatterns = [
-    path('login', LoginView.as_view(), name = "login"),
+    path('login/', LoginView.as_view(), name = "login"),
     path('index', views.index, name = "index"),
 ]
