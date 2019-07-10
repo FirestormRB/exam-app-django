@@ -50,7 +50,7 @@ class User(AbstractBaseUser):
     # Add custom fields here
     api_token = models.UUIDField(default=uuid.uuid4, editable=False)
     token_created_date = models.DateTimeField(auto_now_add=True)
-    role = models.SmallIntegerField(choices = ROLE_CHOICES, default = SUPER_ADMIN)
+    role = models.SmallIntegerField(choices = ROLE_CHOICES, null = True)
 
     objects = CustomUserManager()
 
